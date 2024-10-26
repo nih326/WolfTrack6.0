@@ -37,6 +37,33 @@
                     <div class="title">Signup</div>
                     <form method="POST" action="">
                         {{ form.hidden_tag() }}
+                        {% if form.username.errors %}
+                            <div class="error-message">
+                                <ul>
+                                    {% for error in form.username.errors %}
+                                        <li class="error">{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        {% endif %}
+                        {% if form.password.errors %}
+                            <div class="error-message">
+                                <ul>
+                                    {% for error in form.password.errors %}
+                                        <li class="error">{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        {% endif %} 
+                        {% if form.confirm_password.errors %}
+                            <div class="error-message">
+                                <ul>
+                                    {% for error in form.confirm_password.errors %}
+                                        <li class="error">{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        {% endif %}   
                         <div class="input-box">
                             {{ form.name.label }}
                             {{ form.name }}
@@ -45,9 +72,14 @@
                             {{ form.username.label }}
                             {{ form.username }}
                         </div>
+                        
                         <div class="input-box">
                             {{ form.password.label }}
                             {{ form.password }}
+                        </div>
+                        <div class="input-box">
+                            {{ form.confirm_password.label }}
+                            {{ form.confirm_password }}
                         </div>
                         <div class="input-box">
                             {{ form.usertype.label }}

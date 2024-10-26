@@ -392,3 +392,23 @@ a.button4:hover{
   max-width: 100%; /* Make sure the image doesn't exceed the container width */
 }
 
+
+.input-box {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.error-message {
+  margin-top: 5px;
+  background-color: #ffe6e6; /* Light red background for error */
+  color: #d9534f; /* Bootstrap-like error color */
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.85em; /* Smaller, less intrusive text */
+}
+
+.error-message .error {
+  display: block; /* Each error on a new line */
+  margin-bottom: 5px;
+}
+
