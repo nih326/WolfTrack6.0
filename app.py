@@ -15,7 +15,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, SelectField 
-from wtforms.validators import InputRequired, Length, ValidationError, DataRequired, EqualTo
+from wtforms.validators import InputRequired, Length, ValidationError, DataRequired, EqualTo, Regexp
 from werkzeug.utils import redirect
 from Controller.send_email import *
 from Controller.send_profile import *
@@ -57,10 +57,27 @@ create_tables(database)
 #     password = db.Column(db.String(80), nullable=False)
 #     usertype = db.Column(db.String(20), nullable=False)
 
+def validate_username(form, field):
+        user = find_user(field.data,database)
+        print("user--->",user)
+        if user:
+            raise ValidationError('Username already exists')
+
+def validate_confirm_password(form, field):
+        if str(field.data) != str(form.password.data):
+            raise ValidationError('Passwords do not match')
+
 class RegisterForm(FlaskForm):
-    username = StringField(render_kw={"placeholder": "Username"})
-    name = StringField(render_kw={"placeholder": "Name"})
-    password = PasswordField(render_kw={"placeholder": "Password"})
+    username = StringField(validators=[
+                           InputRequired(), Length(min=4, max=20), validate_username],render_kw={"placeholder": "Username"})
+    
+
+    name = StringField(validators=[
+                             InputRequired()],render_kw={"placeholder": "Name"})
+    password = PasswordField(validators=[
+                             InputRequired(), Length(min=8, max=20), Regexp('(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%#*?&])[A-Za-z\d@$!%*?&]+',message='Password should contain atleast one letter, number and special character')],render_kw={"placeholder": "Password"})
+    confirm_password = PasswordField(validators=[
+                             InputRequired(), Length(min=8, max=20), Regexp('(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%#*?&])[A-Za-z\d@$!%*?&]+',message='Password should contain atleast one letter, number and special character'), validate_confirm_password],render_kw={"placeholder": "Confirm Password"})
     usertype = SelectField(render_kw={"placeholder": "Usertype"}, choices=[('admin', 'Admin'), ('student', 'Student')])
     submit = SubmitField('Register')
 
@@ -72,7 +89,7 @@ class LoginForm(FlaskForm):
                              InputRequired(), Length(min=8, max=20)], render_kw={"placeholder": "Password"})
 
     usertype = SelectField(validators=[
-                           InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "Usertype"}, choices=[('admin', 'Admin'), ('student', 'Student')])
+                             InputRequired()], render_kw={"placeholder": "Usertype"}, choices=[('admin', 'Admin'), ('student', 'Student')])
 
     submit = SubmitField('Login')
 
@@ -91,28 +108,41 @@ def logout():
 def login():
     form = LoginForm() 
     if form.validate_on_submit():
+        print("Form is valid")
         user = find_user(str(form.username.data),database)
         if user:
             if bcrypt.check_password_hash(user[3], form.password.data):
-                login_user(app,user)
-                if user[4] == 'admin':
-                    return redirect(url_for('admin', data=user[2]))
-                elif user[4] == 'student':
-                    return redirect(url_for('student', data=user[2]))
+                if form.usertype.data == user[4]:
+                    login_user(app,user)
+                    if user[4] == 'admin':
+                        return redirect(url_for('admin', data=user[2]))
+                    elif user[4] == 'student':
+                        return redirect(url_for('student', data=user[2]))
+                    else:
+                        pass
                 else:
-                    pass
+                    form.usertype.errors.append("Wrong usertype selected")
+            else:
+                form.password.errors.append("Incorrect password")
+        else:
+            form.username.errors.append("User does not exist")
+    else:
+        print("Form errors:", form.errors)
     return render_template('login.html',form = form)
 
 @app.route('/signup',methods=['GET', 'POST'])
 def signup():
     form = RegisterForm()
     if form.validate_on_submit():
+        print("Form is valid")
         hashed_password = bcrypt.generate_password_hash(form.password.data)
         new_client = [form.name.data,form.username.data, hashed_password, form.usertype.data]
         add_client(new_client,database)
         return redirect(url_for('login'))
+    else:
+        print("Form errors:", form.errors)
 
-    return render_template('signup.html',form = RegisterForm())
+    return render_template('signup.html',form = form)
 
 @app.route('/admin',methods=['GET', 'POST'])
 def admin():
