@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 import os
 
 # Load environment variables
-load_dotenv() 
+#load_dotenv() 
 
 class TestSignupFormValidation(unittest.TestCase):
 
@@ -26,7 +26,7 @@ class TestSignupFormValidation(unittest.TestCase):
             '/login',
             data={
                 "username": "qwer",
-                "password": self.test_password,
+                "password": "diyadiya06#",
                 "usertype": "student"
             }
         )
@@ -39,8 +39,8 @@ class TestSignupFormValidation(unittest.TestCase):
         response = self.client.post(
             '/login',
             data={
-                "username": self.test_username,
-                "password": self.test_password,
+                "username": "qwert",
+                "password": "diyadiya06#",
                 "usertype": "admin"
             }
         )
@@ -53,7 +53,7 @@ class TestSignupFormValidation(unittest.TestCase):
         response = self.client.post(
             '/login',
             data={
-                "username": self.test_username,
+                "username": "qwert",
                 "password": "ya0dfgssgr#",
                 "usertype": "student"
             }
@@ -67,8 +67,8 @@ class TestSignupFormValidation(unittest.TestCase):
         response = self.client.post(
             '/login',
             data={
-            "username": self.test_username,
-            "password": self.test_password,
+            "username": "qwert",
+            "password": "diyadiya06#",
             "usertype": "student"
             },
             follow_redirects=False  # Set to False to capture the redirect response
@@ -85,7 +85,7 @@ class TestSignupFormValidation(unittest.TestCase):
         response = self.client.post(
             '/login',
             data={
-                "password": self.test_password,
+                "password": "diyadiya06#",
                 "usertype": "student"
             }
         )
@@ -98,7 +98,7 @@ class TestSignupFormValidation(unittest.TestCase):
         response = self.client.post(
             '/login',
             data={
-                "username": self.test_username,
+                "username": "qwert",
                 "usertype": "student"
             }
         )
