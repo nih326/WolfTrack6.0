@@ -76,21 +76,21 @@ class TestSignupFormValidation(unittest.TestCase):
         with self.app.test_request_context(method="POST", data={"name":"abc", "username": "user1234", "password": "12345678", "confirm_password": "12345678", "usertype": "student"}):
             form = RegisterForm()
             self.assertFalse(form.validate())
-            self.assertIn("Password should contain atleast one letter, number and special character", form.confirm_password.errors)
+            self.assertIn("Password should contain atleast one letter, number and special character", form.password.errors)
 
     def test_password_just_letters(self):    
         #Testing with a password of just letters
         with self.app.test_request_context(method="POST", data={"name":"abc", "username": "user1234", "password": "abcdefgh", "confirm_password": "abcdefgh", "usertype": "student"}):
             form = RegisterForm()
             self.assertFalse(form.validate())
-            self.assertIn("Password should contain atleast one letter, number and special character", form.confirm_password.errors)
+            self.assertIn("Password should contain atleast one letter, number and special character", form.password.errors)
 
     def test_password_numbers_letters(self):    
         #Testing with a password of just letters
         with self.app.test_request_context(method="POST", data={"name":"abc", "username": "user1234", "password": "abcdefgh123", "confirm_password": "abcdefgh123", "usertype": "student"}):
             form = RegisterForm()
             self.assertFalse(form.validate())
-            self.assertIn("Password should contain atleast one letter, number and special character", form.confirm_password.errors)
+            self.assertIn("Password should contain atleast one letter, number and special character", form.password.errors)
     
     def test_password_valid(self):    
         #Testing with a password of just letters
