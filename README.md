@@ -1,4 +1,4 @@
-<h1><b>WolfTrack 5.0</b></h1>
+<h1><b>WolfTrack 6.0</b></h1>
 
 ---
 
@@ -19,7 +19,7 @@
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
-    <li><a href="#why-WolfTrack-5.0">Why WolfTrack 5.0?</a></li>
+    <li><a href="#why-WolfTrack-5.0">Why WolfTrack 6.0?</a></li>
     <li><a href="#check-out-the-video">Check out the video!</a></li>
     <li><a href="#what-is-new-in-this-version">What is new in this version?</a></li>
     <li><a href="#what-type-of-user-is-WolfTrack-5.0-best-suited-for?">What type of user is WolfTrack 5.0 best suited for?</a></li>
@@ -39,9 +39,9 @@
   </ol>
 </details>
 
-## Why WolfTrack 5.0?
+## Why WolfTrack 6.0?
 
-WolfTrack5.0 is your ultimate destination for seamless organization and efficiency in your pursuit of internships and full-time job opportunities. This sophisticated online platform empowers you to streamline your application process, keeping tabs on every step of your professional journey. Say goodbye to scattered notes and endless email threads – with WolfTrack5.0, you can effortlessly manage applications, deadlines, and crucial documents, ensuring you never miss a beat in your career quest. It's your compass in the competitive job market, offering structure and precision without sacrificing style and user-friendliness. WolfTrack5.0 is your passport to success, guiding you through the winding paths of career opportunities with elegance and ease.
+WolfTrack6.0 is your ultimate destination for seamless organization and efficiency in your pursuit of internships and full-time job opportunities. This sophisticated online platform empowers you to streamline your application process, keeping tabs on every step of your professional journey. Say goodbye to scattered notes and endless email threads – with WolfTrack5.0, you can effortlessly manage applications, deadlines, and crucial documents, ensuring you never miss a beat in your career quest. It's your compass in the competitive job market, offering structure and precision without sacrificing style and user-friendliness. WolfTrack5.0 is your passport to success, guiding you through the winding paths of career opportunities with elegance and ease.
 
 We offer features like giving suggestions for improvements on your resume, tracking your application, and many more.
 
@@ -58,7 +58,7 @@ Checkout the [this documentation](docs/UserGuide.pdf)
 
 ---
 
-## What type of user is WolfTrack 5.0 best suited for?
+## What type of user is WolfTrack 6.0 best suited for?
 
 This platform has been designed keeping in mind any person who is out to seek a job or internship. This may be a college student in any year, as well as a career professional wishing to switch. It may also be someone looking to enter an industry for the first time. This platform caters to a wide target audience and its simple, yet powerful features make it useful for everyone.
 
@@ -243,14 +243,15 @@ It is part of the [Github Workflow Build](https://github.com/rutuja-39/WolfTrack
 - [x] Implemented Test Cases from scratch due to extensive code refactoring.
 
 ### Phase 6 WolfTrack 6.0 (Future Scope):
+- [x] Online chat with expert
+- [x] Interview Preparation resources tab
+- [x] Imporve Login and Signup Interface
 
+### Phase 6 WolfTrack 7.0 (Future Scope):
 - [ ] Web scraper for recommended jobs
 - [ ] Configure Cron-Job for reminder as SMS notification
-- [ ] Online chat with expert
 - [ ] Resume template editor
-- [ ] Interview Preparation resources tab
 - [ ] Salary insights and comparisons
-
 ---
 
 ## Developer Support and Updates
