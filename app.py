@@ -29,6 +29,8 @@ from Controller.send_email import *
 from dbutils import add_job, create_tables, add_client, delete_job_application_by_company ,find_user, get_job_applications, get_job_applications_by_status, update_job_application_by_id
 from login_utils import login_user
 import requests
+import re
+
 
 app = Flask(__name__)
 # api = Api(app)
@@ -241,15 +243,30 @@ def send_Profile():
 
     return render_template('home.html', data=data, upcoming_events=upcoming_events, user=user)
 
+skills_list = [
+    'Python', 'Java', 'SQL', 'AWS', 'Azure', 'JavaScript', 'HTML', 'CSS', 
+    'Machine Learning', 'Data Analysis', 'Git', 'Docker', 'Kubernetes', 
+    'Linux', 'C++', 'C#', 'Flask', 'Django', 'React', 'Node.js'
+]
+def extract_skills(job_description):
+    job_description = job_description.lower()
+    found_skills = []
+    for skill in skills_list:
+        if re.search(r'\b' + re.escape(skill.lower()) + r'\b', job_description):
+            found_skills.append(skill)
+    return found_skills
 
 @app.route('/student/job_profile_analyze', methods=['GET', 'POST'])
 def job_profile_analyze():
-    if request.method == 'POST':
-        job_profile = request.form['job_profile']
+    skills_text = ""
+    job_profile = ""
+
+    if request.method == "POST":
+        job_profile = request.form.get("job_profile", "")
         skills = extract_skills(job_profile)
-        skills_text = ', '.join(skills)
-        return render_template('job_profile_analyze.html', skills_text=skills_text, job_profile=job_profile)
-    return render_template('job_profile_analyze.html', skills_text='', job_profile='')
+        skills_text = ", ".join(skills) if skills else "No skills found."
+
+    return render_template("job_profile_analyze.html", job_profile=job_profile, skills_text=skills_text)
 
 filename=""
 @app.route("/student/upload", methods=['POST'])
@@ -343,6 +360,14 @@ def chat_gpt_analyzer():
 @app.route('/student/job_search')
 def job_search():
     return render_template('job_search.html')
+
+@app.route('/student/contacT_admin')
+def contacT_admin():
+    return render_template('contact_hr.html')
+
+@app.route('/student/leave_review')
+def leave_review():
+    return render_template('leave_review.html')
 
 @app.route('/student/job_search/result', methods=['POST'])
 def search():
