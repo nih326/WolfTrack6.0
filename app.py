@@ -77,7 +77,7 @@ class RegisterForm(FlaskForm):
     password = PasswordField(validators=[
                              InputRequired(), Length(min=8, max=20), Regexp('(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%#*?&])[A-Za-z\d@$!%*?&]+',message='Password should contain atleast one letter, number and special character')],render_kw={"placeholder": "Password"})
     confirm_password = PasswordField(validators=[
-                             InputRequired(), Length(min=8, max=20), Regexp('(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%#*?&])[A-Za-z\d@$!%*?&]+',message='Password should contain atleast one letter, number and special character'), validate_confirm_password],render_kw={"placeholder": "Confirm Password"})
+                             InputRequired(), Length(min=8, max=20)],render_kw={"placeholder": "Confirm Password"})
     usertype = SelectField(render_kw={"placeholder": "Usertype"}, choices=[('admin', 'Admin'), ('student', 'Student')])
     submit = SubmitField('Register')
 
