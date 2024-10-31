@@ -278,7 +278,7 @@
               </div>
               <div class="form-group">
                 <label>Status:</label>
-                <select class="form-control" name="status" id="statusDropdown" required="1" onchange="updateFilterButton()">
+                <select class="form-control" name="status" required="1">
                   <option value="Applied">Applied</option>
                   <option value="In Progress">In Progress</option>
                   <option value="Interview">Interview</option>
@@ -304,16 +304,3 @@
     </div>
 </div>
 {% endblock content %}
-<script>
-  function updateFilterButton() {
-      // Get the selected option text
-      const selectedStatus = document.getElementById("statusDropdown").value;
-      
-      // Update the button text with the selected option
-      const filterButton = document.getElementById("filterButton");
-      filterButton.textContent = `Filter: ${selectedStatus}`;
-  }
-
-  // Initial update for button text if a filter is already selected
-  updateFilterButton();
-</script>
