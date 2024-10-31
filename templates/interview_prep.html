@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Preparation Resources</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: red;
+        }
+        h1 {
+            color: white;
+        }
+        .resource {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: white;
+            border-radius: 5px;
+        }
+        .resource h2 {
+            margin: 0 0 10px;
+        }
+        .resource a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .resource a:hover {
+            text-decoration: underline;
+        }
+        .download-button {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: white;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .download-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Interview Preparation Resources</h1>
+
+{% for resource in resources %}
+<div class="resource">
+    <h2>{{ resource.title }}</h2>
+
+    {% if resource.url %}
+        <a href="{{ resources.url }}" target="_blank">Visit Website</a>
+    {% endif %}
+
+    {% if resource.pdf %}
+        <br>
+        <a class="download-button" href="/download/{{ resources.ids }}">Download PDF</a>
+    {% endif %}
+</div>
+{% endfor %}
+
+</body>
+</html>

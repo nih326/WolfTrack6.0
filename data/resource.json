@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "title": "Data Structures and Algorithms",
+        "url": "https://www.techinterviewhandbook.org/algorithms/study-cheatsheet/"
+    },
+    {
+        "id": 2,
+        "title": "System Design Basics",
+        "url": "https://www.techinterviewhandbook.org/system-design/"
+    },
+    {
+        "id": 3,
+        "title": "Interview Success Cheat sheet",
+        "pdf": "docs/cheatsheet.pdf"
+    }
+]

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Job Recommender</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/layout.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/admin.css') }}"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+    ></script>
+  </head>
+
+  <body oncontextmenu="return false" class="snippet-body">
+    <!-- JQUERY STEP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-steps/1.1.0/jquery.steps.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/showdown@2.0.3/dist/showdown.min.js
+      "></script>
+    <nav class="navbar navbar-expand-sm navbar-dark sticky-top">
+      <ul class="navbar-nav">
+        <img
+          class="rounded-circle project-icon"
+          alt="100x100"
+          src="https://ih1.redbubble.net/image.1703296696.9941/st,small,507x507-pad,600x600,f8f8f8.jpg"
+          height="30px"
+          width="30px"
+          style="margin-right: 5px; margin-top: 5px"
+          data-holder-rendered="true"
+        />
+        <a class="navbar-brand" href="/">WolfTrack</a>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <a href="/student/analyze_resume" style="color: #facaca; text-decoration: none"
+          >Analyze Resume</a
+        >
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <a href="/findJobs" style="color: #facaca; text-decoration: none"
+          >Recommended Jobs</a
+        >
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+        </li>
+      </ul>
+    </nav>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Company</th>
+          <th scope="col">Hourly Salary</th>
+          <th scope="col">Job Qualifications</th>
+          <th scope="col">Resume Match Score</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Two Six Technologies</td>
+          <td>$40/hr</td>
+          <td class="col-3" style="text-align: justify">
+            Pursuing a degree in Computer Science, Computer Engineering,
+            Electrical Engineering, Mathematics, Statistics, or a related field
+            Familiar with a modern programming language (C/C++, C#, Java,
+            Python, JavaScript, etc.) Familiar with the software development
+            life cycle and version control.
+          </td>
+          <td>83%</td>
+          <td>
+            <button type="button m-2" class="btn btn-danger">
+              <a
+                href="https://boards.greenhouse.io/twosixtechnologies/jobs/4992883004?utm_source=Simplify&ref=Simplify"
+                style="color: white"
+                >Apply</a
+              >
+            </button>
+            <button type="button m-2" class="btn btn-secondary">
+              Add to Wishlist
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>Wayfair</td>
+          <td>$45/hr</td>
+          <td class="col-3" style="text-align: justify">
+            You are currently enrolled in a full-time undergraduate degree
+            program in Computer Science or a related technical field You have a
+            proven track record of strong academic performance. You may have
+            experience with full stack and/or mobile development. You may have
+            knowledge and experience working with object oriented programming
+            languages.
+          </td>
+          <td>75%</td>
+          <td>
+            <button type="button m-2" class="btn btn-danger">
+              <a
+                href="https://www.wayfair.com/careers/job/software-engineering-intern---summer-2024/6977400002/apply?gh_src=&source=&referredBy=&utm_source=Simplify"
+                style="color: white"
+                >Apply</a
+              >
+            </button>
+            <button type="button m-2" class="btn btn-secondary">
+              Add to Wishlist
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>Lyft</td>
+          <td>$58/hr</td>
+          <td class="col-3" style="text-align: justify">
+            Currently pursuing a degree in Computer Science or a related field,
+            with a graduation date between December 2024 and June 2025
+            (required) Available during Summer 2024 for an internship Strong
+            knowledge of CS fundamentals Strong knowledge of Swift Excellent
+            communication skills
+          </td>
+          <td>52%</td>
+          <td>
+            <button type="button m-2" class="btn btn-danger">
+              <a
+                href="https://app.careerpuck.com/job-board/lyft/job/6975529002?gh_jid=6975529002&utm_source=Simplify&ref=Simplify"
+                style="color: white"
+                >Apply</a
+              >
+            </button>
+            <button type="button m-2" class="btn btn-secondary">
+              Add to Wishlist
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>Okta</td>
+          <td>$30/hr</td>
+          <td class="col-3" style="text-align: justify">
+            Implement features in a Scrum/Agile environment Design and deploy
+            high-performance, scalable software features Design, test and deploy
+            production code Interface with QA, Product Management, Technical
+            Support,
+          </td>
+          <td>41%</td>
+          <td>
+            <button type="button m-2" class="btn btn-danger">
+              <a
+                href="https://www.okta.com/company/careers/engineering/site-reliability-engineer-intern-summer-2024-5437074/?utm_source=Simplify"
+                style="color: white"
+                >Apply</a
+              >
+            </button>
+            <button type="button m-2" class="btn btn-secondary">
+              Add to Wishlist
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
