@@ -54,7 +54,7 @@ To demonstrate our application's functionality and showcase its working examples
 ---
 
 ## What is new in this version?
-Checkout the [this documentation](docs/UserGuide.pdf)
+Checkout the [this documentation](docs/User%20Guide.pdf)
 
 ---
 
@@ -88,7 +88,7 @@ This platform has been designed keeping in mind any person who is out to seek a 
 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;![ezgif com-optimize](https://user-images.githubusercontent.com/32817064/140445992-15af5890-6aa5-48e5-b663-7e6bd1272d26.gif)
 
 - #### We have created an entire CI pipeline which includes all the stages including Code Analysis, Style checkers, Code Coverage, Code Assemble and Docker Image Build, readily available to run the image on any server without manually setting up the environment.
-- [Github WorkFlow YAML](https://github.com/nehajaideep/WolfTrack3.0/blob/Group10StableBranch/.github/workflows/main.yml) | [Dockerfile](https://github.com/nehajaideep/WolfTrack3.0/blob/Group10StableBranch/Dockerfile) | [Prettier Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) | [JS-HTML-CSS Formatter](https://marketplace.visualstudio.com/items?itemName=lonefy.vscode-JS-CSS-HTML-formatter) | [Flake8](https://github.com/nehajaideep/WolfTrack23.0/blob/Group10StableBranch/.github/workflows/main.yml)
+- [Github WorkFlow YAML](https://github.com/nih326/WolfTrack6.0/actions/workflows/feature.yml?query=branch:feature)) | [Dockerfile](https://github.com/nehajaideep/WolfTrack3.0/blob/Group10StableBranch/Dockerfile) | [Prettier Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) | [JS-HTML-CSS Formatter](https://marketplace.visualstudio.com/items?itemName=lonefy.vscode-JS-CSS-HTML-formatter) | [Flake8](https://github.com/nehajaideep/WolfTrack23.0/blob/Group10StableBranch/.github/workflows/main.yml)
 
 ### Third-Party Tools
 
@@ -133,7 +133,7 @@ This platform has been designed keeping in mind any person who is out to seek a 
 
     `source test_env/bin/activate`
 
-  - Build the virtual environment:(must be present in [project root directory](https://github.com/rutuja-39/WolfTrack5.0))
+  - Build the virtual environment:(must be present in [project root directory](https://github.com/nih326/WolfTrack6.0))
 
     `pip install -r requirements.txt`
 
@@ -141,9 +141,9 @@ This platform has been designed keeping in mind any person who is out to seek a 
 
   **To run/test the site locally:**
 
-  - Clone [WolfTrack github repo](https://github.com/rutuja-39/WolfTrack5.0).
+  - Clone [WolfTrack github repo](https://github.com/nih326/WolfTrack6.0).
 
-  - Navigate to [project directory](https://github.com/rutuja-39/WolfTrack5.0).
+  - Navigate to [project directory](https://github.com/nih326/WolfTrack6.0).
 
   - Run `python main.py` or `python3 main.py` <br> <br>
     If there is a certificate error coming up for nltk stopwords download: <br>
@@ -173,13 +173,13 @@ This platform has been designed keeping in mind any person who is out to seek a 
 ---
 
 [Class/Functions Documentation](https://github.com/rutuja-39/WolfTrack5.0/blob/dev/docs/app.md)
-[Use Cases Documentation](https://github.com/rutuja-39/WolfTrack5.0/blob/Main/docs/User%20Guide.pdf)
+[Use Cases Documentation](https://github.com/nih326/WolfTrack6.0/blob/feature/docs/WolfTrack_4.0_UseCase.pdf)
 
 ---
 
 ## Code Coverage
 
-It is part of the [Github Workflow Build](https://github.com/rutuja-39/WolfTrack5.0/tree/Main/.github/workflows)
+It is part of the [Github Workflow Build](https://github.com/nih326/WolfTrack6.0/tree/feature/.github/workflows)
 
 ---
 
