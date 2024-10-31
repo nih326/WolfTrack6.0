@@ -53,12 +53,12 @@
     <h2>{{ resource.title }}</h2>
 
     {% if resource.url %}
-        <a href="{{ resources.url }}" target="_blank">Visit Website</a>
+        <a href="{{ resource.url }}" target="_blank">Visit Website</a>
     {% endif %}
 
     {% if resource.pdf %}
         <br>
-        <a class="download-button" href="/download/{{ resources.ids }}">Download PDF</a>
+        <a class="download-button" href="/download/{{ resource.id }}">Download PDF</a>
     {% endif %}
 </div>
 {% endfor %}
