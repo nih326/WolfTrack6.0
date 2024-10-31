@@ -5,24 +5,24 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10211710.svg)](https://doi.org/10.5281/zenodo.10211710)
 
 
-[![Manual Build](https://img.shields.io/github/actions/workflow/status/rutuja-39/WolfTrack5.0/main.yml)](https://github.com/rutuja-39/WolfTrack5.0/actions)
+[![Manual Build](https://img.shields.io/github/actions/workflow/status/nih326/WolfTrack6.0/codecov.yml?branch=feature)](https://github.com/nih326/WolfTrack6.0/actions/workflows/codecov.yml?query=branch:feature)
 <!-- [![codecov](https://codecov.io/gh/nehajaideep/WolfTrack3.0/branch/Group10StableBranch/graph/badge.svg?token=0Q36G2YQC6)](https://codecov.io/gh/nehajaideep/WolfTrack3.0) -->
-[![codecov](https://codecov.io/gh/aniketdarp190301/WolfTrack4.0/graph/badge.svg?token=3OWJ1DERO5)](https://app.codecov.io/github/rutuja-39/WolfTrack5.0/tree/dev/graph)
-![GitHub language count](https://img.shields.io/github/languages/count/rutuja-39/WolfTrack5.0)
-[![GitHub pull-requests](https://img.shields.io/github/issues-pr/rutuja-39/WolfTrack5.0)](https://github.com/rutuja-39/WolfTrack5.0/pulls)
-[![GitHub-size](https://img.shields.io/github/repo-size/rutuja-39/WolfTrack5.0)](https://github.com/rutuja-39/WolfTrack5.0)
-[![GitHub issues](https://img.shields.io/github/issues/rutuja-39/WolfTrack5.0)](https://github.com/rutuja-39/WolfTrack5.0/issues)
-[![GitHub-closed-issues](https://img.shields.io/github/issues-closed/rutuja-39/WolfTrack5.0)](https://github.com/rutuja-39/WolfTrack5.0/issues?q=is%3Aissue+is%3Aclosed)
+[![codecov](https://codecov.io/gh/aniketdarp190301/WolfTrack4.0/graph/badge.svg?token=3OWJ1DERO5)](https://app.codecov.io/github/nih326/WolfTrack6.0/tree/dev?query=branch:feature)
+![GitHub language count](https://img.shields.io/github/languages/count/nih326/WolfTrack6.0?branch=feature)
+[![GitHub pull-requests](https://img.shields.io/github/issues-pr/nih326/WolfTrack6.0?branch=feature)](https://github.com/nih326/WolfTrack6.0/pulls?query=branch:feature)
+[![GitHub-size](https://img.shields.io/github/repo-size/nih326/WolfTrack6.0?branch=feature)](https://github.com/nih326/WolfTrack6.0/pulls?query=branch:feature)
+[![GitHub issues](https://img.shields.io/github/issues/nih326/WolfTrack6.0?branch=feature)](https://github.com/nih326/WolfTrack6.0/issues?query=branch:feature)
+[![GitHub-closed-issues](https://img.shields.io/github/issues-closed/nih326/WolfTrack6.0?branch=feature)](https://github.com/nih326/WolfTrack6.0/issues?q=is%3Aissue+is%3Aclosed?query=branch:feature)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 <!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
-    <li><a href="#why-WolfTrack-5.0">Why WolfTrack 6.0?</a></li>
+    <li><a href="#why-wolftrack-6">Why WolfTrack 6.0?</a></li>
     <li><a href="#check-out-the-video">Check out the video!</a></li>
     <li><a href="#what-is-new-in-this-version">What is new in this version?</a></li>
-    <li><a href="#what-type-of-user-is-WolfTrack-5.0-best-suited-for?">What type of user is WolfTrack 5.0 best suited for?</a></li>
+    <li><a href="#what-type-of-user-is-wolftrack-6-best-suited-for">What type of user is WolfTrack 6.0 best suited for?</a></li>
     <li><a href="#technology-stack">Technology Stack</a></li>
     <li><a href="#version-control-tools">Version Control Tools</a></li>
     <li><a href="#tools">Tools</a></li>
@@ -39,7 +39,7 @@
   </ol>
 </details>
 
-## Why WolfTrack 6.0?
+## Why WolfTrack 6?
 
 WolfTrack6.0 is your ultimate destination for seamless organization and efficiency in your pursuit of internships and full-time job opportunities. This sophisticated online platform empowers you to streamline your application process, keeping tabs on every step of your professional journey. Say goodbye to scattered notes and endless email threads – with WolfTrack5.0, you can effortlessly manage applications, deadlines, and crucial documents, ensuring you never miss a beat in your career quest. It's your compass in the competitive job market, offering structure and precision without sacrificing style and user-friendliness. WolfTrack5.0 is your passport to success, guiding you through the winding paths of career opportunities with elegance and ease.
 
@@ -54,11 +54,11 @@ To demonstrate our application's functionality and showcase its working examples
 ---
 
 ## What is new in this version?
-Checkout the [this documentation](docs/UserGuide.pdf)
+Checkout the [this documentation](docs/User%20Guide.pdf)
 
 ---
 
-## What type of user is WolfTrack 6.0 best suited for?
+## What type of user is WolfTrack 6 best suited for?
 
 This platform has been designed keeping in mind any person who is out to seek a job or internship. This may be a college student in any year, as well as a career professional wishing to switch. It may also be someone looking to enter an industry for the first time. This platform caters to a wide target audience and its simple, yet powerful features make it useful for everyone.
 
@@ -88,7 +88,7 @@ This platform has been designed keeping in mind any person who is out to seek a 
 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;![ezgif com-optimize](https://user-images.githubusercontent.com/32817064/140445992-15af5890-6aa5-48e5-b663-7e6bd1272d26.gif)
 
 - #### We have created an entire CI pipeline which includes all the stages including Code Analysis, Style checkers, Code Coverage, Code Assemble and Docker Image Build, readily available to run the image on any server without manually setting up the environment.
-- [Github WorkFlow YAML](https://github.com/nehajaideep/WolfTrack3.0/blob/Group10StableBranch/.github/workflows/main.yml) | [Dockerfile](https://github.com/nehajaideep/WolfTrack3.0/blob/Group10StableBranch/Dockerfile) | [Prettier Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) | [JS-HTML-CSS Formatter](https://marketplace.visualstudio.com/items?itemName=lonefy.vscode-JS-CSS-HTML-formatter) | [Flake8](https://github.com/nehajaideep/WolfTrack23.0/blob/Group10StableBranch/.github/workflows/main.yml)
+- [Github WorkFlow YAML](https://github.com/nih326/WolfTrack6.0/actions/workflows/feature.yml?query=branch:feature)) | [Dockerfile](https://github.com/nehajaideep/WolfTrack3.0/blob/Group10StableBranch/Dockerfile) | [Prettier Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) | [JS-HTML-CSS Formatter](https://marketplace.visualstudio.com/items?itemName=lonefy.vscode-JS-CSS-HTML-formatter) | [Flake8](https://github.com/nehajaideep/WolfTrack23.0/blob/Group10StableBranch/.github/workflows/main.yml)
 
 ### Third-Party Tools
 
@@ -133,7 +133,7 @@ This platform has been designed keeping in mind any person who is out to seek a 
 
     `source test_env/bin/activate`
 
-  - Build the virtual environment:(must be present in [project root directory](https://github.com/rutuja-39/WolfTrack5.0))
+  - Build the virtual environment:(must be present in [project root directory](https://github.com/nih326/WolfTrack6.0))
 
     `pip install -r requirements.txt`
 
@@ -141,9 +141,9 @@ This platform has been designed keeping in mind any person who is out to seek a 
 
   **To run/test the site locally:**
 
-  - Clone [WolfTrack github repo](https://github.com/rutuja-39/WolfTrack5.0).
+  - Clone [WolfTrack github repo](https://github.com/nih326/WolfTrack6.0).
 
-  - Navigate to [project directory](https://github.com/rutuja-39/WolfTrack5.0).
+  - Navigate to [project directory](https://github.com/nih326/WolfTrack6.0).
 
   - Run `python main.py` or `python3 main.py` <br> <br>
     If there is a certificate error coming up for nltk stopwords download: <br>
@@ -173,13 +173,13 @@ This platform has been designed keeping in mind any person who is out to seek a 
 ---
 
 [Class/Functions Documentation](https://github.com/rutuja-39/WolfTrack5.0/blob/dev/docs/app.md)
-[Use Cases Documentation](https://github.com/rutuja-39/WolfTrack5.0/blob/Main/docs/User%20Guide.pdf)
+[Use Cases Documentation](https://github.com/nih326/WolfTrack6.0/blob/feature/docs/WolfTrack_4.0_UseCase.pdf)
 
 ---
 
 ## Code Coverage
 
-It is part of the [Github Workflow Build](https://github.com/rutuja-39/WolfTrack5.0/tree/Main/.github/workflows)
+It is part of the [Github Workflow Build](https://github.com/nih326/WolfTrack6.0/tree/feature/.github/workflows)
 
 ---
 
@@ -242,7 +242,7 @@ It is part of the [Github Workflow Build](https://github.com/rutuja-39/WolfTrack
 - [x] Resolved upload and download resume bugs for smoother user experience.<br>
 - [x] Implemented Test Cases from scratch due to extensive code refactoring.
 
-### Phase 6 WolfTrack 6.0 (Future Scope):
+### Phase 6 WolfTrack 6.0:
 - [x] Online chat with expert
 - [x] Interview Preparation resources tab
 - [x] Imporve Login and Signup Interface
@@ -271,7 +271,7 @@ This project currently receives no funding.
 
 ## Contributions
 
-Please refer to the [CONTRIBUTING.md](https://github.com/rutuja-39/WolfTrack5.0/blob/Main/CONTRIBUTING.md) if you want to contrbute to the WolfTrack 5.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
+Please refer to the [CONTRIBUTING.md](https://github.com/rutuja-39/WolfTrack5.0/blob/Main/CONTRIBUTING.md) if you want to contrbute to the WolfTrack 6.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
 
 ---
 
