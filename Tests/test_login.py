@@ -1,7 +1,6 @@
 import unittest
 from flask import Flask
 from app import app, LoginForm 
-from dotenv import load_dotenv
 import os
 
 # Load environment variables
