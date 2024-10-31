@@ -242,7 +242,7 @@ It is part of the [Github Workflow Build](https://github.com/rutuja-39/WolfTrack
 - [x] Resolved upload and download resume bugs for smoother user experience.<br>
 - [x] Implemented Test Cases from scratch due to extensive code refactoring.
 
-### Phase 6 WolfTrack 6.0 (Future Scope):
+### Phase 6 WolfTrack 6.0:
 - [x] Online chat with expert
 - [x] Interview Preparation resources tab
 - [x] Imporve Login and Signup Interface
@@ -271,7 +271,7 @@ This project currently receives no funding.
 
 ## Contributions
 
-Please refer to the [CONTRIBUTING.md](https://github.com/rutuja-39/WolfTrack5.0/blob/Main/CONTRIBUTING.md) if you want to contrbute to the WolfTrack 5.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
+Please refer to the [CONTRIBUTING.md](https://github.com/rutuja-39/WolfTrack5.0/blob/Main/CONTRIBUTING.md) if you want to contrbute to the WolfTrack 6.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
 
 ---
 
