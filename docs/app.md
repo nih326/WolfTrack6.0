@@ -125,3 +125,13 @@
     - Description: Handles the download request for a specific PDF resource by resource_id. If the resource is found and contains a PDF, it sends the file as a downloadable attachment. Otherwise, it returns a 404 error.
     - Parameters:  resource_id (int): The unique identifier of the resource to be downloaded.
     - Returns:  Sends the PDF file as an attachment or returns a "File not found" message with a 404 status if the resource or PDF file is not found.
+
+26. **leave_review()**:
+    - Description: Handles the route for Comments and Feedback page, taking input and passing them on template for display
+    - Parameters: None
+    - Returns: The rendered HTML page ‘leave_review.html’ that contains the review submission form for users.
+   
+27.  **networking_contacts()**:
+    - Description: Handles the route for networking contacts, taking input through a form and displaying a list of contacts.
+    - Parameters: None
+    - Returns: The rendered HTML page 'networking_contacts.html' that contains the list of networking contacts.
