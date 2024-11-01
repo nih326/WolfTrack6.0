@@ -10,7 +10,7 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 '''
 import os
-from flask import Flask, request, render_template, make_response, redirect,url_for,send_from_directory, session, flash
+from flask import Flask,json, request, render_template, make_response, redirect,url_for,send_from_directory, session, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_wtf import FlaskForm
@@ -412,6 +412,23 @@ def search():
             return "Error fetching job listings"
     except requests.RequestException as e:
         return f"Error: {e}"
+
+def load_resources():
+    with open('data/resource.json') as f:
+        return json.load(f)
+    
+@app.route('/interview-prep')
+def interview_prep():
+    resources = load_resources()
+    return render_template('interview_prep.html', resources=resources)
+
+@app.route('/download/<int:resource_id>')
+def download_pdf(resource_id):  
+    resources = load_resources()
+    resource = next((res for res in resources if res["id"] == resource_id), None)
+    if resource and "pdf" in resource:
+        return send_file(resource["pdf"], as_attachment=True)
+    return "File not found", 404
 
 if __name__ == '__main__':
     app.run(debug=True)
