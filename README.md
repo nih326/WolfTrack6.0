@@ -285,5 +285,5 @@ Please refer to the [CONTRIBUTING.md](https://github.com/nih326/WolfTrack6.0/blo
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ---
-## Acknowledgments
+## Acknowledgements
 
