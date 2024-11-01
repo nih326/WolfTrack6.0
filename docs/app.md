@@ -110,3 +110,18 @@
     - Description: Searches for job listings using Adzuna API based on the job role.
     - Parameters: None
     - Returns: Renders the job_search_results.html template with job listings.
+   
+23. **load_resources()**:
+    - Description: Loads resources from a JSON file (data/resource.json) and returns them as a Python dictionary.
+    - Parameters: None
+    - Returns: A dictionary or list of resources loaded from data/resource.json.
+   
+24. **interview_prep()**:
+    - Description: Handles the route for the interview preparation page, retrieving resources and passing them to the template for display.
+    - Parameters: None
+    - Returns:  Renders the interview_prep.html template with the loaded resources.
+   
+25. **download_pdf(resource_id)**:
+    - Description: Handles the download request for a specific PDF resource by resource_id. If the resource is found and contains a PDF, it sends the file as a downloadable attachment. Otherwise, it returns a 404 error.
+    - Parameters:  resource_id (int): The unique identifier of the resource to be downloaded.
+    - Returns:  Sends the PDF file as an attachment or returns a "File not found" message with a 404 status if the resource or PDF file is not found.
