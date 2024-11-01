@@ -287,3 +287,9 @@ Please refer to the [CONTRIBUTING.md](https://github.com/nih326/WolfTrack6.0/blo
 ---
 ## Acknowledgements
 
+We would like to express our gratitude and a big thank you to Prof. Dr. Timothy Menzie for giving us the opportunity to get into the shoes of software building and learning new skills and development process throughout the project building. It was a great opportunity to learn to work as a team.
+A big thank you to the Teaching Assistants for their support.
+Thank you to the previous team for a thorough ReadMe and detailed documentation that helped us easily understand the project.
+
+---
+
