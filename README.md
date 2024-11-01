@@ -256,7 +256,7 @@ It is part of the [Github Workflow Build](https://github.com/nih326/WolfTrack6.0
 
 ## Developer Support and Updates
 
-For support and inquiries related to **WolfTrack 5.0**, please contact us at **csc510group32@gmail.com**. We are here to assist you and address any questions or issues you may have.
+For support and inquiries related to **WolfTrack 5.0**, please contact us at **csc510group39@gmail.com**. We are here to assist you and address any questions or issues you may have.
 
 We appreciate your interest and look forward to providing you with the best possible support and updates.
 
@@ -271,7 +271,7 @@ This project currently receives no funding.
 
 ## Contributions
 
-Please refer to the [CONTRIBUTING.md](https://github.com/rutuja-39/WolfTrack5.0/blob/Main/CONTRIBUTING.md) if you want to contrbute to the WolfTrack 6.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
+Please refer to the [CONTRIBUTING.md](https://github.com/nih326/WolfTrack6.0/blob/feature/CONTRIBUTING.md) if you want to contrbute to the WolfTrack 6.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
 
 ---
 
