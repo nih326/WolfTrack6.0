@@ -32,10 +32,8 @@
     <li><a href="#developer-support-and-updates">Developer Support and Updates</a></li>
     <li><a href="#funding">Funding</a></li>
     <li><a href="#contributions">Contributions</a></li>
-    <li><a href="#future-roadmap">Future RoadMap</a></li>
     <li><a href="#contributors">Contributors</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
-    <li><a href="#contact-us">Contact Us</a></li>
   </ol>
 </details>
 
@@ -43,13 +41,13 @@
 
 WolfTrack6.0 is your ultimate destination for seamless organization and efficiency in your pursuit of internships and full-time job opportunities. This sophisticated online platform empowers you to streamline your application process, keeping tabs on every step of your professional journey. Say goodbye to scattered notes and endless email threads – with WolfTrack5.0, you can effortlessly manage applications, deadlines, and crucial documents, ensuring you never miss a beat in your career quest. It's your compass in the competitive job market, offering structure and precision without sacrificing style and user-friendliness. WolfTrack5.0 is your passport to success, guiding you through the winding paths of career opportunities with elegance and ease.
 
-We offer features like giving suggestions for improvements on your resume, tracking your application, and many more.
+We offer features like giving suggestions for improvements on your resume, tracking your application, interview prep resoruces and many more.
 
 ---
 
 ## Check out the video!
 
-To demonstrate our application's functionality and showcase its working examples, we have produced a YouTube video for the WolfTrack 5.0 project. In this video, we showcase that the system operates as intended. You can view the video by clicking on the following link:  [YouTube Link](https://www.youtube.com/watch?v=ACj3HYIbg2A) 
+To demonstrate our application's functionality and showcase its working examples, we have produced a YouTube video for the WolfTrack 6.0 project. In this video, we showcase that the system operates as intended. You can view the video by clicking on the following link:  [YouTube Link](https://www.youtube.com/watch?v=ACj3HYIbg2A) 
 
 ---
 
@@ -88,7 +86,7 @@ This platform has been designed keeping in mind any person who is out to seek a 
 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;![ezgif com-optimize](https://user-images.githubusercontent.com/32817064/140445992-15af5890-6aa5-48e5-b663-7e6bd1272d26.gif)
 
 - #### We have created an entire CI pipeline which includes all the stages including Code Analysis, Style checkers, Code Coverage, Code Assemble and Docker Image Build, readily available to run the image on any server without manually setting up the environment.
-- [Github WorkFlow YAML](https://github.com/nih326/WolfTrack6.0/actions/workflows/feature.yml?query=branch:feature)) | [Dockerfile](https://github.com/nehajaideep/WolfTrack3.0/blob/Group10StableBranch/Dockerfile) | [Prettier Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) | [JS-HTML-CSS Formatter](https://marketplace.visualstudio.com/items?itemName=lonefy.vscode-JS-CSS-HTML-formatter) | [Flake8](https://github.com/nehajaideep/WolfTrack23.0/blob/Group10StableBranch/.github/workflows/main.yml)
+- [Github WorkFlow YAML](https://github.com/nih326/WolfTrack6.0/actions/workflows/feature.yml?query=branch:feature)) | [Dockerfile](https://github.com/nih326/WolfTrack6.0/blob/feature/Dockerfile) | [Prettier Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) | [JS-HTML-CSS Formatter](https://marketplace.visualstudio.com/items?itemName=lonefy.vscode-JS-CSS-HTML-formatter) | [Flake8](https://github.com/nih326/WolfTrack6.0/actions/workflows/feature.yml?query=branch:feature)
 
 ### Third-Party Tools
 
@@ -145,7 +143,7 @@ This platform has been designed keeping in mind any person who is out to seek a 
 
   - Navigate to [project directory](https://github.com/nih326/WolfTrack6.0).
 
-  - Run `python main.py` or `python3 main.py` <br> <br>
+  - Run `python app.py` or `python3 app.py` <br> <br>
     If there is a certificate error coming up for nltk stopwords download: <br>
 
     - search for "Install Certificates.command" in finder and open it. Its a script that will install required Certificates. <br>
@@ -172,8 +170,8 @@ This platform has been designed keeping in mind any person who is out to seek a 
 
 ---
 
-[Class/Functions Documentation](https://github.com/rutuja-39/WolfTrack5.0/blob/dev/docs/app.md)
-[Use Cases Documentation](https://github.com/nih326/WolfTrack6.0/blob/feature/docs/WolfTrack_4.0_UseCase.pdf)
+[Class/Functions Documentation](https://github.com/nih326/WolfTrack6.0/blob/feature/docs/app.md)
+[Use Cases Documentation](https://github.com/nih326/WolfTrack6.0/blob/feature/docs/WolfTrack_6.0_UseCase.pdf)
 
 ---
 
@@ -256,7 +254,7 @@ It is part of the [Github Workflow Build](https://github.com/nih326/WolfTrack6.0
 
 ## Developer Support and Updates
 
-For support and inquiries related to **WolfTrack 5.0**, please contact us at **csc510group39@gmail.com**. We are here to assist you and address any questions or issues you may have.
+For support and inquiries related to **WolfTrack 6.0**, please contact us at **csc510group39@gmail.com**. We are here to assist you and address any questions or issues you may have.
 
 We appreciate your interest and look forward to providing you with the best possible support and updates.
 
@@ -287,5 +285,5 @@ Please refer to the [CONTRIBUTING.md](https://github.com/nih326/WolfTrack6.0/blo
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ---
-
+## Acknowledgments
 
