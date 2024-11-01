@@ -22,6 +22,7 @@
     <li><a href="#why-wolftrack-6">Why WolfTrack 6.0?</a></li>
     <li><a href="#check-out-the-video">Check out the video!</a></li>
     <li><a href="#what-is-new-in-this-version">What is new in this version?</a></li>
+    <li><a href="#why-contribute">Why Contribute?</a></li>
     <li><a href="#what-type-of-user-is-wolftrack-6-best-suited-for">What type of user is WolfTrack 6.0 best suited for?</a></li>
     <li><a href="#technology-stack">Technology Stack</a></li>
     <li><a href="#version-control-tools">Version Control Tools</a></li>
@@ -47,12 +48,17 @@ We offer features like giving suggestions for improvements on your resume, track
 
 ## Check out the video!
 
-To demonstrate our application's functionality and showcase its working examples, we have produced a YouTube video for the WolfTrack 6.0 project. In this video, we showcase that the system operates as intended. You can view the video by clicking on the following link:  [YouTube Link](https://www.youtube.com/watch?v=ACj3HYIbg2A) 
+To demonstrate our application's functionality and showcase its working examples, we have produced a YouTube video for the WolfTrack 6.0 project. In this video, we showcase that the system operates as intended. You can view the video by clicking on the following link:  [YouTube Link](https://youtu.be/KzTqL9esUlY) 
 
 ---
 
 ## What is new in this version?
 Checkout the [this documentation](docs/User%20Guide.pdf)
+
+---
+
+## Why Contribute?
+You might be thinking what makes this project interesting to contribute to! In this video we showcase just that! You can view the video by clicking on the following link:  [YouTube Link](https://www.youtube.com/watch?v=ACj3HYIbg2A) 
 
 ---
 
