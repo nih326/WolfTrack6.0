@@ -58,7 +58,7 @@ Checkout the [this documentation](docs/User%20Guide.pdf)
 ---
 
 ## Why Contribute?
-You might be thinking what makes this project interesting to contribute to! In this video we showcase just that! You can view the video by clicking on the following link:  [YouTube Link](https://www.youtube.com/watch?v=ACj3HYIbg2A) 
+You might be thinking what makes this project interesting to contribute to! In this video we showcase just that! You can view the video by clicking on the following link:  [YouTube Link](https://youtu.be/jOYg_4dD36k) 
 
 ---
 
