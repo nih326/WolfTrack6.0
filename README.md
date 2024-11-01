@@ -2,7 +2,7 @@
 
 ---
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10211710.svg)](https://doi.org/10.5281/zenodo.10211710)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14020581.svg)](https://doi.org/10.5281/zenodo.14020581)
 
 
 [![Manual Build](https://img.shields.io/github/actions/workflow/status/nih326/WolfTrack6.0/codecov.yml?branch=feature)](https://github.com/nih326/WolfTrack6.0/actions/workflows/codecov.yml?query=branch:feature)
