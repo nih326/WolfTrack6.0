@@ -86,7 +86,7 @@ This platform has been designed keeping in mind any person who is out to seek a 
 &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;![ezgif com-optimize](https://user-images.githubusercontent.com/32817064/140445992-15af5890-6aa5-48e5-b663-7e6bd1272d26.gif)
 
 - #### We have created an entire CI pipeline which includes all the stages including Code Analysis, Style checkers, Code Coverage, Code Assemble and Docker Image Build, readily available to run the image on any server without manually setting up the environment.
-- [Github WorkFlow YAML](https://github.com/nih326/WolfTrack6.0/actions/workflows/feature.yml?query=branch:feature)) | [Dockerfile](https://github.com/nih326/WolfTrack6.0/blob/feature/Dockerfile) | [Prettier Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) | [JS-HTML-CSS Formatter](https://marketplace.visualstudio.com/items?itemName=lonefy.vscode-JS-CSS-HTML-formatter) | [Flake8](https://github.com/nih326/WolfTrack6.0/actions/workflows/feature.yml?query=branch:feature)
+- [Github WorkFlow YAML](https://github.com/nih326/WolfTrack6.0/actions/workflows/feature.yml?query=branch:feature) | [Dockerfile](https://github.com/nih326/WolfTrack6.0/blob/feature/Dockerfile) | [Prettier Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) | [JS-HTML-CSS Formatter](https://marketplace.visualstudio.com/items?itemName=lonefy.vscode-JS-CSS-HTML-formatter) | [Flake8](https://github.com/nih326/WolfTrack6.0/actions/workflows/feature.yml?query=branch:feature)
 
 ### Third-Party Tools
 
