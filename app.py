@@ -121,9 +121,9 @@ def login():
                     else:
                         pass
                 else:
-                    form.usertype.errors.append("Wrong usertype selected")
+                    form.usertype.errors.append("Invalid credentials")
             else:
-                form.password.errors.append("Incorrect password")
+                form.password.errors.append("Invalid credentials")
         else:
             form.username.errors.append("User does not exist")
     else:
