@@ -15,7 +15,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, SelectField 
-from wtforms.validators import InputRequired, Length, ValidationError, DataRequired, EqualTo
+from wtforms.validators import InputRequired, Length, ValidationError, DataRequired, EqualTo, Regexp
 from werkzeug.utils import redirect
 from Controller.send_email import *
 from Controller.send_profile import *
@@ -29,8 +29,6 @@ from Controller.send_email import *
 from dbutils import add_job, create_tables, add_client, delete_job_application_by_company ,find_user, get_job_applications, get_job_applications_by_status, update_job_application_by_id
 from login_utils import login_user
 import requests
-import re
-
 
 app = Flask(__name__)
 # api = Api(app)
@@ -59,10 +57,27 @@ create_tables(database)
 #     password = db.Column(db.String(80), nullable=False)
 #     usertype = db.Column(db.String(20), nullable=False)
 
+def validate_username(form, field):
+        user = find_user(field.data,database)
+        print("user--->",user)
+        if user:
+            raise ValidationError('Username already exists')
+
+def validate_confirm_password(form, field):
+        if str(field.data) != str(form.password.data):
+            raise ValidationError('Passwords do not match')
+
 class RegisterForm(FlaskForm):
-    username = StringField(render_kw={"placeholder": "Username"})
-    name = StringField(render_kw={"placeholder": "Name"})
-    password = PasswordField(render_kw={"placeholder": "Password"})
+    username = StringField(validators=[
+                           InputRequired(), Length(min=4, max=20), validate_username],render_kw={"placeholder": "Username"})
+    
+
+    name = StringField(validators=[
+                             InputRequired()],render_kw={"placeholder": "Name"})
+    password = PasswordField(validators=[
+                             InputRequired(), Length(min=8, max=20), Regexp('(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%#*?&])[A-Za-z\d@$!%*?&]+',message='Password should contain atleast one letter, number and special character')],render_kw={"placeholder": "Password"})
+    confirm_password = PasswordField(validators=[
+                             InputRequired(), Length(min=8, max=20), validate_confirm_password],render_kw={"placeholder": "Confirm Password"})
     usertype = SelectField(render_kw={"placeholder": "Usertype"}, choices=[('admin', 'Admin'), ('student', 'Student')])
     submit = SubmitField('Register')
 
@@ -74,7 +89,7 @@ class LoginForm(FlaskForm):
                              InputRequired(), Length(min=8, max=20)], render_kw={"placeholder": "Password"})
 
     usertype = SelectField(validators=[
-                           InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "Usertype"}, choices=[('admin', 'Admin'), ('student', 'Student')])
+                             InputRequired()], render_kw={"placeholder": "Usertype"}, choices=[('admin', 'Admin'), ('student', 'Student')])
 
     submit = SubmitField('Login')
 
@@ -93,28 +108,41 @@ def logout():
 def login():
     form = LoginForm() 
     if form.validate_on_submit():
+        print("Form is valid")
         user = find_user(str(form.username.data),database)
         if user:
             if bcrypt.check_password_hash(user[3], form.password.data):
-                login_user(app,user)
-                if user[4] == 'admin':
-                    return redirect(url_for('admin', data=user[2]))
-                elif user[4] == 'student':
-                    return redirect(url_for('student', data=user[2]))
+                if form.usertype.data == user[4]:
+                    login_user(app,user)
+                    if user[4] == 'admin':
+                        return redirect(url_for('admin', data=user[2]))
+                    elif user[4] == 'student':
+                        return redirect(url_for('student', data=user[2]))
+                    else:
+                        pass
                 else:
-                    pass
+                    form.usertype.errors.append("Invalid credentials")
+            else:
+                form.password.errors.append("Invalid credentials")
+        else:
+            form.username.errors.append("User does not exist")
+    else:
+        print("Form errors:", form.errors)
     return render_template('login.html',form = form)
 
 @app.route('/signup',methods=['GET', 'POST'])
 def signup():
     form = RegisterForm()
     if form.validate_on_submit():
+        print("Form is valid")
         hashed_password = bcrypt.generate_password_hash(form.password.data)
         new_client = [form.name.data,form.username.data, hashed_password, form.usertype.data]
         add_client(new_client,database)
         return redirect(url_for('login'))
+    else:
+        print("Form errors:", form.errors)
 
-    return render_template('signup.html',form = RegisterForm())
+    return render_template('signup.html',form = form)
 
 @app.route('/admin',methods=['GET', 'POST'])
 def admin():
@@ -243,30 +271,15 @@ def send_Profile():
 
     return render_template('home.html', data=data, upcoming_events=upcoming_events, user=user)
 
-skills_list = [
-    'Python', 'Java', 'SQL', 'AWS', 'Azure', 'JavaScript', 'HTML', 'CSS', 
-    'Machine Learning', 'Data Analysis', 'Git', 'Docker', 'Kubernetes', 
-    'Linux', 'C++', 'C#', 'Flask', 'Django', 'React', 'Node.js'
-]
-def extract_skills(job_description):
-    job_description = job_description.lower()
-    found_skills = []
-    for skill in skills_list:
-        if re.search(r'\b' + re.escape(skill.lower()) + r'\b', job_description):
-            found_skills.append(skill)
-    return found_skills
 
 @app.route('/student/job_profile_analyze', methods=['GET', 'POST'])
 def job_profile_analyze():
-    skills_text = ""
-    job_profile = ""
-
-    if request.method == "POST":
-        job_profile = request.form.get("job_profile", "")
+    if request.method == 'POST':
+        job_profile = request.form['job_profile']
         skills = extract_skills(job_profile)
-        skills_text = ", ".join(skills) if skills else "No skills found."
-
-    return render_template("job_profile_analyze.html", job_profile=job_profile, skills_text=skills_text)
+        skills_text = ', '.join(skills)
+        return render_template('job_profile_analyze.html', skills_text=skills_text, job_profile=job_profile)
+    return render_template('job_profile_analyze.html', skills_text='', job_profile='')
 
 filename=""
 @app.route("/student/upload", methods=['POST'])
@@ -361,13 +374,13 @@ def chat_gpt_analyzer():
 def job_search():
     return render_template('job_search.html')
 
-@app.route('/student/contacT_admin')
-def contacT_admin():
-    return render_template('contact_hr.html')
-
 @app.route('/student/leave_review')
 def leave_review():
     return render_template('leave_review.html')
+
+@app.route('/student/networking_contacts')
+def networking_contacts():
+    return render_template('networking_contacts.html')
 
 @app.route('/student/job_search/result', methods=['POST'])
 def search():
