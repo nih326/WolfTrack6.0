@@ -45,7 +45,7 @@ class TestSignupFormValidation(unittest.TestCase):
         )
 
         # Check if the response contains the expected error message
-        self.assertIn(b"Wrong usertype selected", response.data)
+        self.assertIn(b"Invalid credentials", response.data)
 
     def test_wrong_password(self):
         # Testing password exceeding maximum length with a POST request
@@ -59,7 +59,7 @@ class TestSignupFormValidation(unittest.TestCase):
         )
 
         # Check if the response contains the expected error message
-        self.assertIn(b"Incorrect password", response.data)
+        self.assertIn(b"Invalid credentials", response.data)
 
     def test_correct_user_redirects_to_student(self):
         # Testing a correct login that should redirect to the student page
