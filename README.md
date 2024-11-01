@@ -7,7 +7,7 @@
 
 [![Manual Build](https://img.shields.io/github/actions/workflow/status/nih326/WolfTrack6.0/codecov.yml?branch=feature)](https://github.com/nih326/WolfTrack6.0/actions/workflows/codecov.yml?query=branch:feature)
 <!-- [![codecov](https://codecov.io/gh/nehajaideep/WolfTrack3.0/branch/Group10StableBranch/graph/badge.svg?token=0Q36G2YQC6)](https://codecov.io/gh/nehajaideep/WolfTrack3.0) -->
-[![codecov](https://codecov.io/gh/aniketdarp190301/WolfTrack4.0/graph/badge.svg?token=3OWJ1DERO5)](https://app.codecov.io/github/nih326/WolfTrack6.0/tree/dev?query=branch:feature)
+[![codecov](https://codecov.io/gh/aniketdarp190301/WolfTrack4.0/graph/badge.svg?token=3OWJ1DERO5)](https://app.codecov.io/github/nih326/WolfTrack6.0/tree/feature)
 ![GitHub language count](https://img.shields.io/github/languages/count/nih326/WolfTrack6.0?branch=feature)
 [![GitHub pull-requests](https://img.shields.io/github/issues-pr/nih326/WolfTrack6.0?branch=feature)](https://github.com/nih326/WolfTrack6.0/pulls?query=branch:feature)
 [![GitHub-size](https://img.shields.io/github/repo-size/nih326/WolfTrack6.0?branch=feature)](https://github.com/nih326/WolfTrack6.0/pulls?query=branch:feature)
@@ -256,7 +256,7 @@ It is part of the [Github Workflow Build](https://github.com/nih326/WolfTrack6.0
 
 ## Developer Support and Updates
 
-For support and inquiries related to **WolfTrack 5.0**, please contact us at **csc510group32@gmail.com**. We are here to assist you and address any questions or issues you may have.
+For support and inquiries related to **WolfTrack 5.0**, please contact us at **csc510group39@gmail.com**. We are here to assist you and address any questions or issues you may have.
 
 We appreciate your interest and look forward to providing you with the best possible support and updates.
 
@@ -271,7 +271,20 @@ This project currently receives no funding.
 
 ## Contributions
 
-Please refer to the [CONTRIBUTING.md](https://github.com/rutuja-39/WolfTrack5.0/blob/Main/CONTRIBUTING.md) if you want to contrbute to the WolfTrack 6.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
+Please refer to the [CONTRIBUTING.md](https://github.com/nih326/WolfTrack6.0/blob/feature/CONTRIBUTING.md) if you want to contrbute to the WolfTrack 6.0 source code. Follow all the guidelines mentioned and raise a pull request for the developers to review before the code goes to the main source code.
+
+---
+
+## Contributors
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ---
 
