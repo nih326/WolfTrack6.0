@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drop A Comment!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7fa;
+            color: #333;
+        }
+        h1 {
+            color: #007acc;
+            font-size: 2rem;
+        }
+        .comments {
+            width: 100%;
+            max-width: 600px;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .comment-box {
+            background-color: #e9f5ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .comment-box:hover {
+            transform: scale(1.02);
+        }
+        .comment-author {
+            font-weight: bold;
+            color: #007acc;
+            margin-bottom: 5px;
+        }
+        .stars {
+            display: flex;
+            gap: 5px;
+            margin-top: 10px;
+            cursor: pointer;
+            justify-content: center;
+        }
+        .star {
+            font-size: 24px;
+            color: #ccc;
+            transition: color 0.3s ease;
+        }
+        .star.selected,
+        .star:hover,
+        .star:hover ~ .star {
+            color: gold;
+        }
+        form, .comments {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        textarea, input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        textarea:focus, input[type="text"]:focus {
+            border-color: #007acc;
+        }
+        button {
+            background-color: #007acc;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        button:hover {
+            background-color: #005f99;
+            transform: scale(1.05);
+        }
+        button:active {
+            transform: scale(0.98);
+        }
+        #clearComments {
+            background-color: #ff5c5c;
+            margin-top: 10px;
+        }
+        #clearComments:hover {
+            background-color: #e44c4c;
+        }
+    </style>
+</head>
+<body>
+
+<h1>WolfTrack 6.0</h1>
+<div>
+    <h2>Drop A Comment!</h2>
+    <p>Help us improve WolfTrack6.0! Drop a comment and let us know if there is something we can improve on</p>
+    <form id="commentForm">
+        <input type="text" id="nameInput" placeholder="Your Name" required><br><br>
+        <textarea id="commentInput" placeholder="Write your comment here" required></textarea><br>
+        <div class="stars" id="starRating">
+            <span class="star" data-rating="1">&#9733;</span>
+            <span class="star" data-rating="2">&#9733;</span>
+            <span class="star" data-rating="3">&#9733;</span>
+            <span class="star" data-rating="4">&#9733;</span>
+            <span class="star" data-rating="5">&#9733;</span>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+    <button id="clearComments">Clear All Comments</button>
+</div>
+
+<div class="comments" id="commentsSection">
+    <h2>Comments</h2>
+</div>
+
+<script>
+    const commentForm = document.getElementById('commentForm');
+    const nameInput = document.getElementById('nameInput');
+    const commentInput = document.getElementById('commentInput');
+    const commentsSection = document.getElementById('commentsSection');
+    const starRating = document.getElementById('starRating');
+    const clearCommentsButton = document.getElementById('clearComments');
+
+    let selectedRating = 0;
+
+    // Load comments from localStorage on page load
+    window.addEventListener('load', () => {
+        const storedComments = JSON.parse(localStorage.getItem('comments')) || [];
+        storedComments.forEach(({ name, text, rating }) => displayComment(name, text, rating));
+    });
+
+    // Function to display a comment with star rating
+    function displayComment(name, commentText, rating) {
+        const commentBox = document.createElement('div');
+        commentBox.classList.add('comment-box');
+
+        // Display the author's name
+        const author = document.createElement('div');
+        author.classList.add('comment-author');
+        author.textContent = name;
+
+        // Create the star display
+        const stars = document.createElement('div');
+        stars.classList.add('stars');
+        for (let i = 1; i <= 5; i++) {
+            const star = document.createElement('span');
+            star.classList.add('star');
+            star.innerHTML = '&#9733;';
+            if (i <= rating) star.classList.add('selected');
+            stars.appendChild(star);
+        }
+
+        // Append name, text, and stars to the comment box
+        commentBox.appendChild(author);
+        commentBox.innerHTML += commentText;
+        commentBox.appendChild(stars);
+        commentsSection.appendChild(commentBox);
+    }
+
+    // Form submission handler
+    commentForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = nameInput.value.trim();
+        const commentText = commentInput.value.trim();
+        
+        if (name && commentText && selectedRating > 0) {
+            displayComment(name, commentText, selectedRating);
+            storeComment(name, commentText, selectedRating);
+            nameInput.value = '';
+            commentInput.value = '';
+            resetStars();
+        }
+    });
+
+    // Store comment with name and rating in localStorage
+    function storeComment(name, commentText, rating) {
+        const storedComments = JSON.parse(localStorage.getItem('comments')) || [];
+        storedComments.push({ name: name, text: commentText, rating: rating });
+        localStorage.setItem('comments', JSON.stringify(storedComments));
+    }
+
+    // Handle star selection
+    starRating.addEventListener('click', (e) => {
+        if (e.target.classList.contains('star')) {
+            selectedRating = e.target.getAttribute('data-rating');
+            updateStarSelection();
+        }
+    });
+
+    // Update star display based on selection
+    function updateStarSelection() {
+        Array.from(starRating.children).forEach(star => {
+            star.classList.remove('selected');
+            if (star.getAttribute('data-rating') <= selectedRating) {
+                star.classList.add('selected');
+            }
+        });
+    }
+
+    // Reset stars after submission
+    function resetStars() {
+        selectedRating = 0;
+        updateStarSelection();
+    }
+
+    // Clear comments from both the display and localStorage
+    clearCommentsButton.addEventListener('click', () => {
+        localStorage.removeItem('comments');
+        commentsSection.innerHTML = '<h2>Comments</h2>';  // Clear all comments except the heading
+    });
+</script>
+
+</body>
+</html>

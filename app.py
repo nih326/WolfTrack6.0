@@ -10,7 +10,7 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 '''
 import os
-from flask import Flask, request, render_template, make_response, redirect,url_for,send_from_directory, session, flash
+from flask import Flask,json, request, render_template, make_response, redirect,url_for,send_from_directory, session, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_wtf import FlaskForm
@@ -272,14 +272,30 @@ def send_Profile():
     return render_template('home.html', data=data, upcoming_events=upcoming_events, user=user)
 
 
+skills_list = [
+    'Python', 'Java', 'SQL', 'AWS', 'Azure', 'JavaScript', 'HTML', 'CSS', 
+    'Machine Learning', 'Data Analysis', 'Git', 'Docker', 'Kubernetes', 
+    'Linux', 'C++', 'C#', 'Flask', 'Django', 'React', 'Node.js'
+]
+def extract_skills(job_description):
+    job_description = job_description.lower()
+    found_skills = []
+    for skill in skills_list:
+        if re.search(r'\b' + re.escape(skill.lower()) + r'\b', job_description):
+            found_skills.append(skill)
+    return found_skills
+
 @app.route('/student/job_profile_analyze', methods=['GET', 'POST'])
 def job_profile_analyze():
-    if request.method == 'POST':
-        job_profile = request.form['job_profile']
+    skills_text = ""
+    job_profile = ""
+
+    if request.method == "POST":
+        job_profile = request.form.get("job_profile", "")
         skills = extract_skills(job_profile)
-        skills_text = ', '.join(skills)
-        return render_template('job_profile_analyze.html', skills_text=skills_text, job_profile=job_profile)
-    return render_template('job_profile_analyze.html', skills_text='', job_profile='')
+        skills_text = ", ".join(skills) if skills else "No skills found."
+
+    return render_template("job_profile_analyze.html", job_profile=job_profile, skills_text=skills_text)
 
 filename=""
 @app.route("/student/upload", methods=['POST'])
@@ -374,6 +390,14 @@ def chat_gpt_analyzer():
 def job_search():
     return render_template('job_search.html')
 
+@app.route('/student/leave_review')
+def leave_review():
+    return render_template('leave_review.html')
+
+@app.route('/student/networking_contacts')
+def networking_contacts():
+    return render_template('networking_contacts.html')
+
 @app.route('/student/job_search/result', methods=['POST'])
 def search():
     job_role = request.form['job_role']
@@ -388,6 +412,23 @@ def search():
             return "Error fetching job listings"
     except requests.RequestException as e:
         return f"Error: {e}"
+
+def load_resources():
+    with open('data/resource.json') as f:
+        return json.load(f)
+    
+@app.route('/interview-prep')
+def interview_prep():
+    resources = load_resources()
+    return render_template('interview_prep.html', resources=resources)
+
+@app.route('/download/<int:resource_id>')
+def download_pdf(resource_id):  
+    resources = load_resources()
+    resource = next((res for res in resources if res["id"] == resource_id), None)
+    if resource and "pdf" in resource:
+        return send_file(resource["pdf"], as_attachment=True)
+    return "File not found", 404
 
 if __name__ == '__main__':
     app.run(debug=True)
