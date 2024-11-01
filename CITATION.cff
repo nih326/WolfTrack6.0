@@ -9,3 +9,4 @@ version: 2.1
 identifiers:
   - type: doi
     value: 10.5281/zenodo.14020581
+url: "https://github.com/nih326/WolfTrack6.0"
