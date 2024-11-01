@@ -1,12 +1,13 @@
-cff-version: 1.2.0
-message: "If you use this software, please cite it as below."
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14020581.svg)](https://doi.org/10.5281/zenodo.14020581)
+
+Repository-code: https://github.com/nih326/WolfTrack6.0
+
+DOI: 10.5281/zenodo.14020581
+
+version: 2.1 
 authors:
   - Niharika Maruvanahalli Suresh
   - Diya Shetty
   - Sanjana Nanjungud Shreenivas
-title: "WolfTrack6.0"
-version: 2.1
-identifiers:
-  - type: doi
-    value: 10.5281/zenodo.14020581
-url: "https://github.com/nih326/WolfTrack6.0"
+
+License: MIT License
