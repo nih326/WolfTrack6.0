@@ -414,8 +414,11 @@ def search():
         return f"Error: {e}"
 
 def load_resources():
-    with open('data/resource.json') as f:
-        return json.load(f)
+    # Use the directory of this file to construct the path to resource.json
+    resource_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data', 'resource.json')
+    with open(resource_path) as f:
+        resources = json.load(f)
+    return resources
     
 @app.route('/interview-prep')
 def interview_prep():
