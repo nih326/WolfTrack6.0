@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Networking Contacts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f7fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #007acc;
+        }
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 1rem;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #007acc;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        #addContactForm {
+            margin: 20px;
+            width: 80%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007acc;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Networking Contacts</h1>
+<table id="contactsTable">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Company</th>
+            <th>Role</th>
+            <th>Notes</th>
+        </tr>
+    </thead>
+    <tbody id="tableBody">
+        <!-- Contacts will be added here -->
+    </tbody>
+</table>
+
+<h2>Add New Contact</h2>
+<form id="addContactForm">
+    <input type="text" id="name" placeholder="Contact Name" required>
+    <input type="text" id="company" placeholder="Company" required>
+    <input type="text" id="role" placeholder="Role" required>
+    <textarea id="notes" placeholder="Notes"></textarea>
+    <button type="submit">Add Contact</button>
+</form>
+
+<script>
+    const addContactForm = document.getElementById('addContactForm');
+    const tableBody = document.getElementById('tableBody');
+
+    // Load contacts from localStorage
+    window.addEventListener('load', () => {
+        const storedContacts = JSON.parse(localStorage.getItem('contacts')) || [];
+        storedContacts.forEach(({ name, company, role, notes }) => displayContact(name, company, role, notes));
+    });
+
+    // Function to display a contact in the table
+    function displayContact(name, company, role, notes) {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${name}</td>
+            <td>${company}</td>
+            <td>${role}</td>
+            <td>${notes}</td>
+        `;
+        tableBody.appendChild(row);
+    }
+
+    // Add contact and store in localStorage
+    addContactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const name = document.getElementById('name').value.trim();
+        const company = document.getElementById('company').value.trim();
+        const role = document.getElementById('role').value.trim();
+        const notes = document.getElementById('notes').value.trim();
+
+        if (name && company && role) {
+            displayContact(name, company, role, notes);
+            storeContact(name, company, role, notes);
+            addContactForm.reset();
+        }
+    });
+
+    // Store contact data in localStorage
+    function storeContact(name, company, role, notes) {
+        const storedContacts = JSON.parse(localStorage.getItem('contacts')) || [];
+        storedContacts.push({ name, company, role, notes });
+        localStorage.setItem('contacts', JSON.stringify(storedContacts));
+    }
+</script>
+
+</body>
+</html>
