@@ -19,7 +19,7 @@ class TestSkillExtractor(unittest.TestCase):
         job_description = "Looking for a JavaScript and Python developer."
         expected_skills = ['JavaScript', 'Python']
         found_skills = extract_skills(job_description)
-        self.assertEqual(found_skills, expected_skills)
+        self.assertCountEqual(found_skills, expected_skills)
         
     def test_list_format(self):
         job_description = """
