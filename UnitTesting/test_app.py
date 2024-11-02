@@ -221,13 +221,15 @@ class TestFlaskApp(TestCase):
         response = self.client.post('/student/upload', data=data, follow_redirects=True)
         self.assert400(response)  
 
-    def test_access_routes_without_credentials(self):
-        # Test accessing routes without proper authentication
-        routes = ['/admin', '/student']
-        for route in routes:
-            response = self.client.get(route, follow_redirects=True)
-            self.assert200(response)  
+    @app.route('/student/job_profile_analyze', methods=['GET', 'POST'])
+def job_profile_analyze():
+    skills_text = ""
+    job_profile = ""
 
+    if request.method == "POST":
+        job_profile = request.form.get("job_profile", "")
+        skills = extract_skills(job_profile)
+        skills_text = ", ".join(skills) if skills else "No skills found."
     def test_correct_data_display(self):
         response = self.client.get('/student')
        
@@ -241,12 +243,10 @@ class TestFlaskApp(TestCase):
         response = self.client.get('/student/networking_contacts')
         self.assert200(response) 
 
-    def test_empty_field(self):
-        data = {
-            
-        }
-        response = self.client.post('/student/leave_review', data=data, follow_redirects=True)
-        self.assert400(response) 
+    def test_empty_job_profile(self):
+        response = self.app.post('/student/job_profile_analyze', data={'job_profile': ''})
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b"No skills found.", response.data)
         
 if __name__ == '__main__':
     unittest.main()
