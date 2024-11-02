@@ -222,7 +222,8 @@ class TestFlaskApp(TestCase):
         self.assert400(response)  
 
     @app.route('/student/job_profile_analyze', methods=['GET', 'POST'])
-def job_profile_analyze():
+    
+    def job_profile_analyze():
     skills_text = ""
     job_profile = ""
 
