@@ -20,6 +20,12 @@ class TestSkillExtractor(unittest.TestCase):
         expected_skills = ['JavaScript', 'Python']
         found_skills = extract_skills(job_description)
         self.assertCountEqual(found_skills, expected_skills)
+
+    def test_exact_match(self):
+        job_description = "We are looking for a SQL expert."
+        expected_skills = ['SQL']
+        found_skills = extract_skills(job_description)
+        self.assertEqual(found_skills, expected_skills)
         
     def test_list_format(self):
         job_description = """
