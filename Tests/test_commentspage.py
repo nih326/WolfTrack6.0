@@ -21,3 +21,15 @@ class TestLeaveReview(unittest.TestCase):
         self.assertIn(b'<div class="stars" id="starRating">', response.data)
         self.assertIn(b'<button type="submit">Submit</button>', response.data)
         self.assertIn(b'<button id="clearComments">Clear All Comments</button>', response.data)
+
+    def test_empty_name_field(self):
+        response = self.client.post('/student/leave_review', data={'name': '', 'comment': 'Test comment', 'rating': 5})
+        self.assertIn(b'Name is required', response.data)
+
+    def test_empty_comment_field(self):
+        response = self.client.post('/student/leave_review', data={'name': 'John', 'comment': '', 'rating': 5})
+        self.assertIn(b'Comment is required', response.data)
+
+    def test_empty_review_field(self):
+        response = self.client.post('/student/leave_review', data={'name': 'John', 'comment': 'Test comment', 'rating': 0})
+        self.assertIn(b'Rating is required', response.data)
