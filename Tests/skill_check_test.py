@@ -1,4 +1,5 @@
 import unittest
+from app import extract_skills  # Ensure this import is correct
 
 class TestSkillExtractor(unittest.TestCase):
 
