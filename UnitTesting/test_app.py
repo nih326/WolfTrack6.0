@@ -224,8 +224,8 @@ class TestFlaskApp(TestCase):
     @app.route('/student/job_profile_analyze', methods=['GET', 'POST'])
     
     def job_profile_analyze():
-    skills_text = ""
-    job_profile = ""
+        skills_text = ""
+        job_profile = ""
 
     if request.method == "POST":
         job_profile = request.form.get("job_profile", "")
