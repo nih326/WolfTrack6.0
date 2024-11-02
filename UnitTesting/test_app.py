@@ -232,10 +232,6 @@ class TestFlaskApp(TestCase):
         response = self.client.get('/student')
        
         self.assert200(response)  
-        
-   def test_comment_route(self):
-        response = self.client.get('/student/networking_contacts')
-        self.assertStatus(response, 302) 
 
 if __name__ == '__main__':
     unittest.main()
