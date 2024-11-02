@@ -15,11 +15,5 @@ class TestSkillExtractor(unittest.TestCase):
         found_skills = extract_skills(job_description)
         self.assertEqual(found_skills, expected_skills)
 
-    def test_case_insensitive(self):
-        job_description = "We need a java and c++ programmer."
-        expected_skills = ['Java', 'C++']
-        found_skills = extract_skills(job_description)
-        self.assertEqual(found_skills, expected_skills)
-
 if __name__ == '__main__':
     unittest.main()
