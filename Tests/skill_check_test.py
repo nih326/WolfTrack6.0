@@ -15,5 +15,22 @@ class TestSkillExtractor(unittest.TestCase):
         found_skills = extract_skills(job_description)
         self.assertEqual(found_skills, expected_skills)
 
+    def test_list_format(self):
+        job_description = """
+        The following skills are required:
+        - Python
+        - AWS
+        - Java
+        """
+        expected_skills = ['Python', 'AWS', 'Java']
+        found_skills = extract_skills(job_description)
+        self.assertEqual(found_skills, expected_skills)
+
+    def test_empty_description(self):
+        job_description = ""
+        expected_skills = []
+        found_skills = extract_skills(job_description)
+        self.assertEqual(found_skills, expected_skills)
+
 if __name__ == '__main__':
     unittest.main()
