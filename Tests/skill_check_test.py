@@ -15,6 +15,12 @@ class TestSkillExtractor(unittest.TestCase):
         found_skills = extract_skills(job_description)
         self.assertEqual(found_skills, expected_skills)
 
+    def test_multiple_skills(self):
+        job_description = "Looking for a JavaScript and Python developer."
+        expected_skills = ['JavaScript', 'Python']
+        found_skills = extract_skills(job_description)
+        self.assertEqual(found_skills, expected_skills)
+        
     def test_list_format(self):
         job_description = """
         The following skills are required:
