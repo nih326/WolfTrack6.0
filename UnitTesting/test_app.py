@@ -234,7 +234,7 @@ class TestFlaskApp(TestCase):
         self.assert200(response)  
 
     def test_comments_route(self):
-        response = self.client.get('/student/leave_review'')
+        response = self.client.get('/student/leave_review')
         self.assert200(response) 
 
     def test_networking_route(self):
