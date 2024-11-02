@@ -7,4 +7,3 @@
 | **Added Comments and Reviews Section** | No comment section | We developed a new feature to drop comments, reviews, and ratings to help us improve the application.|
 | **Added Interview Prep Tab** | Interview Prep tab was suggested as a part of future upgrades by the previous team| We implemented the suggested feature. Now there are multiple resources to help you ace your interviews|
 | **Added Networking Contacts Tab** | No Networking Contacts option| AWe implemented a new feature to easily keep track of all your connections and references for any support |
-
