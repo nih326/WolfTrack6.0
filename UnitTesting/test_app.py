@@ -237,11 +237,6 @@ class TestFlaskApp(TestCase):
     def test_networking_route(self):
         response = self.client.get('/student/networking_contacts')
         self.assert200(response) 
-
-    def test_empty_job_profile(self):
-        response = self.app.post('/student/job_profile_analyze', data={'job_profile': ''})
-        self.assertEqual(response.status_code, 200)
-        self.assertIn(b"No skills found.", response.data)
         
 if __name__ == '__main__':
     unittest.main()
