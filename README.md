@@ -247,7 +247,9 @@ It is part of the [Github Workflow Build](https://github.com/nih326/WolfTrack6.0
 - [x] Implemented Test Cases from scratch due to extensive code refactoring.
 
 ### Phase 6 WolfTrack 6.0:
-- [x] Online chat with expert
+- [x] Comment and Review Section
+- [x] Added "Send Profile" feature
+- [x] Keep track of connections and references for any support
 - [x] Interview Preparation resources tab
 - [x] Imporve Login and Signup Interface
 
@@ -256,6 +258,10 @@ It is part of the [Github Workflow Build](https://github.com/nih326/WolfTrack6.0
 - [ ] Configure Cron-Job for reminder as SMS notification
 - [ ] Resume template editor
 - [ ] Salary insights and comparisons
+- [ ] Filtering Job Applications according to User Requirements
+- [ ] Advanced filters for managing multiple applications under specific companies
+- [ ] Admin Analytics tab to track User Activities
+- [ ] Online Chat with expert
 ---
 
 ## Developer Support and Updates
