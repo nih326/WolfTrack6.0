@@ -19,8 +19,8 @@ class TestSkillExtractor(unittest.TestCase):
         job_description = """
         The following skills are required:
         - Python
-        - AWS
         - Java
+        - AWS
         """
         expected_skills = ['Python', 'AWS', 'Java']
         found_skills = extract_skills(job_description)
