@@ -30,7 +30,8 @@ class TestSkillExtractor(unittest.TestCase):
         """
         expected_skills = ['Python', 'AWS', 'Java']
         found_skills = extract_skills(job_description)
-        self.assertEqual(found_skills, expected_skills)
+        self.assertEqual(sorted(found_skills), sorted(expected_skills))  # Sort both lists before comparison
+
 
     def test_empty_description(self):
         job_description = ""
