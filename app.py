@@ -280,9 +280,11 @@ skills_list = [
 def extract_skills(job_description):
     job_description = job_description.lower()
     found_skills = []
+    
     for skill in skills_list:
         if re.search(r'\b' + re.escape(skill.lower()) + r'\b', job_description):
             found_skills.append(skill)
+    
     return found_skills
 
 @app.route('/student/job_profile_analyze', methods=['GET', 'POST'])
