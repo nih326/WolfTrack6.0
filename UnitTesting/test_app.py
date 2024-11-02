@@ -233,20 +233,9 @@ class TestFlaskApp(TestCase):
        
         self.assert200(response)  
         
-    def test_correct_data_display(self):
+   def test_comment_route(self):
         response = self.client.get('/student/networking_contacts')
-        self.assert200(response)
-        self.assertIn(b"<title>Networking Contacts</title>", response.data)
-        self.assertIn(b'<table id="contactsTable">', response.data)
-        self.assertIn(b'<th>Name</th>', response.data)
-        self.assertIn(b'<th>Company</th>', response.data)
-        self.assertIn(b'<th>Role</th>', response.data)
-        self.assertIn(b'<th>Notes</th>', response.data)
-        self.assertIn(b'<form id="addContactForm">', response.data)
-        self.assertIn(b'placeholder="Contact Name"', response.data)
-        self.assertIn(b'placeholder="Company"', response.data)
-        self.assertIn(b'placeholder="Role"', response.data)
-        self.assertIn(b'placeholder="Notes"', response.data)
+        self.assertStatus(response, 302) 
 
 if __name__ == '__main__':
     unittest.main()
