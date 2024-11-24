@@ -30,6 +30,8 @@ from dbutils import add_job, create_tables, add_client, delete_job_application_b
 from login_utils import login_user
 import requests
 
+from resume_builder.resume_generator import ResumeGenerator
+
 app = Flask(__name__)
 # api = Api(app)
 bcrypt = Bcrypt(app)
@@ -434,6 +436,30 @@ def download_pdf(resource_id):
     if resource and "pdf" in resource:
         return send_file(resource["pdf"], as_attachment=True)
     return "File not found", 404
+
+
+@app.route('/student/make_resume', methods=['GET', 'POST'])
+def make_resume():
+    if request.method == 'POST':
+        # Collect form data
+        user_data = {
+            'name': request.form.get('name'),
+            'email': request.form.get('email'),
+            'phone': request.form.get('phone'),
+            'education': request.form.get('education'),
+            'work_experience': request.form.get('work_experience'),
+            'skills': request.form.get('skills'),
+        }
+
+        # Generate the resume PDF
+        generator = ResumeGenerator(user_data)
+        resume_path = generator.generate_pdf()
+
+        # Return the generated resume as a downloadable file
+        return send_file(resume_path, as_attachment=True)
+
+    # Render the resume form for GET requests
+    return render_template('resume_form.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
