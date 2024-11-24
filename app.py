@@ -403,7 +403,7 @@ def networking_contacts():
 @app.route('/student/job_search/result', methods=['POST'])
 def search():
     job_role = request.form['job_role']
-    adzuna_url = f"https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=575e7a4b&app_key=35423835cbd9428eb799622c6081ffed&what_phrase={job_role}"
+    adzuna_url = f"https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=a3ccdd4c&app_key=9528003d5f2bda2be5e19dd645326cda&what_phrase={job_role}"
     try:
         response = requests.get(adzuna_url)
         if response.status_code == 200:
