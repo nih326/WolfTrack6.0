@@ -31,6 +31,7 @@ from login_utils import login_user
 import requests
 
 from resume_builder.resume_generator import ResumeGenerator
+from resume_analyzer.analyzer_handler import analyze_resume
 
 app = Flask(__name__)
 # api = Api(app)
@@ -325,23 +326,17 @@ def upload():
 
     return render_template("home.html", data=data, upcoming_events=upcoming_events, user=user)
 
-@app.route('/student/analyze_resume', methods=['GET'])
-def view_ResumeAna():
-    return render_template('resume_analyzer.html')
 
 @app.route('/student/companiesList', methods=['GET'])
 def view_companies_list():
     return render_template('companies_list.html')
 
 
-@app.route('/student/analyze_resume', methods=['POST'])
-def analyze_resume():
-    jobtext = request.form['jobtext']
-    os.chdir(os.getcwd()+"/Controller/resume/")
-    output = resume_analyzer(jobtext, str(os.listdir(os.getcwd())[0]))
-    os.chdir("..")
-    os.chdir("..")
-    return render_template('resume_analyzer.html', data = output)
+@app.route('/analyze_resume', methods=['GET', 'POST'])
+def analyze_resume_route():
+    if request.method == 'POST':
+        return analyze_resume()
+    return render_template('analyze_form.html')
 
 @app.route("/student/display/", methods=['POST','GET'])
 def display():
@@ -460,6 +455,7 @@ def make_resume():
 
     # Render the resume form for GET requests
     return render_template('resume_form.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
