@@ -1,8 +1,13 @@
 import requests
 import json
+import os
+from dotenv import load_dotenv
+
 
 def evaluate_job_match(job_title, job_description, resume_content):
-    OPENROUTER_API_KEY = "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"
+    load_dotenv()
+    OPENROUTER_API_KEY = os.getenv("API_KEY")
+    
     prompt = f"""Please evaluate this job application and provide detailed feedback:
 
     Job Title: {job_title}
