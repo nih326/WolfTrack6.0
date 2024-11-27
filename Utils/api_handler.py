@@ -49,7 +49,7 @@ def get_ats_score(resume_content):
     ats_prompt = f"""You are a highly critical ATS system evaluator. Analyze this resume with extreme scrutiny.
     
     Scoring Guidelines:
-    - Start with a base score of 45
+    - Start with a base score of 30
     - Maximum possible score is 80
     - Deduct 10 points for any missing core section
     - Deduct 5 points for each formatting inconsistency
