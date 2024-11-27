@@ -21,6 +21,8 @@ from Controller.send_email import *
 from Controller.send_profile import *
 from Controller.ResumeParser import *
 from Utils.jobprofileutils import *
+from flask import jsonify
+from Utils.api_handler import get_ats_score
 import os
 from flask import send_file, current_app as app
 from Controller.chat_gpt_pipeline import pdf_to_text,chatgpt
@@ -349,6 +351,15 @@ def display():
         user = find_user(str(user),database)
         return render_template('home.html', user=user, data=data, upcoming_events=upcoming_events)
 
+@app.route('/get_ats_score', methods=['POST'])
+def calculate_ats_score():
+    try:
+        data = request.get_json()
+        resume_content = data.get('resume_content', '')
+        score = get_ats_score(resume_content)
+        return jsonify({'ats_score': score})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 
 @app.route('/student/chat_gpt_analyzer/', methods=['GET'])
